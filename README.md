@@ -1,12 +1,10 @@
-# CRY Labo 4 - Dylan Oliveira Ramos
+# CRY Labo 4
 
-## Réponses aux questions
-
-### 1. Pourquoi devons nous transmettre une chaine de certificats dans les deux applications (email et TLS) ?
+## 1. Pourquoi devons nous transmettre une chaine de certificats dans les deux applications (email et TLS) ?
 
 Parce que la plupart des clients (navigateur, client mail, etc.) ne connaissent que les certificats racines, pas les intermédiaires. Sans la chaîne de certificats, le navigateur ne peut pas vérifier que le serveur est légitime et le client mail ne peut pas vérifier la signature du mail.
 
-### 2. Comment avez-vous configuré nginx ? Donnez votre fichier de configuration.
+## 2. Comment avez-vous configuré nginx ? Donnez votre fichier de configuration.
 
 J'ai utilisé l'[outil de Mozilla](https://ssl-config.mozilla.org/#server=nginx&version=1.14.0&config=intermediate&openssl=1.1.1&ocsp=false&guideline=5.7) qui permet de générer une configuration de base pour nginx. Voici les paramètres que j'ai utilisés :
 
@@ -52,7 +50,7 @@ server {
 }
 ```
 
-### 3. Fournissez le résultat du scan de testssl sur votre serveur ainsi que des commentaires, si nécessaire.
+## 3. Fournissez le résultat du scan de testssl sur votre serveur ainsi que des commentaires, si nécessaire.
 
 **Commentaire** : j'ai utilisé l'IP à la place du nom de domaine dans le fichier de configuration fourni.
 
@@ -268,7 +266,7 @@ TLSv1.3 (no server order, thus listed by strength)
  Done 2025-06-10 15:17:12 [  59s] -->> 10.190.133.59:44327 (10.190.133.59) <<--
 ```
 
-### 4. Quelle durée de validité avez-vous choisie pour le certificat du serveur TLS ? Pourquoi ? Comment cette durée va-t-elle évoluer dans un futur proche ?
+## 4. Quelle durée de validité avez-vous choisie pour le certificat du serveur TLS ? Pourquoi ? Comment cette durée va-t-elle évoluer dans un futur proche ?
 
 J'ai choisi 398 jours parce que depuis l'année 2020, les navigateurs comme Chrome, Firefox et Safari imposent une durée maximale de validité de 398 jours. Cela permet de limiter l'impact en cas de compromission et de garantir que les certificats soient régulièrement renouvelés.
 
